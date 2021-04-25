@@ -1,0 +1,128 @@
+.details {
+  box-sizing: border-box;
+  z-index: 1;
+  min-width: 250px;
+  max-width: 600px;
+  width: 250px;
+
+  &__content  {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 210px;
+  }
+
+  &__leftPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__rightPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__topPart {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bottomPart {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__description  {
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px;
+  }
+
+  &__year {
+    text-align: center;
+  }
+
+  &__star {
+    background-image: url("../images/star.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: $starSize;
+    height: $starSize;
+  }
+
+  &__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__genre {
+    padding: 5px;
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  &__star--active {
+    background-image: url("../images/star-active.svg");
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  &__director {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  &__starring {
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 400px) {
+    &__content  {
+      position: relative;
+      display: grid;
+      grid-template-columns: 210px auto;
+    }
+  }
+
+  @media screen and (min-width: 600px) {    
+    & {
+      width: 500px;
+    }
+
+    &__image {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  @media screen and (min-width: 700px) {    
+    & {
+      width: 600px;
+    }
+  }
+
+}

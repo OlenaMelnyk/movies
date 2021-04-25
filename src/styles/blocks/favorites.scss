@@ -1,0 +1,31 @@
+.favorites {
+  &__title {
+    display: inline-block;
+    font-size: 18x;
+  }
+
+  &__star {
+    width: $starSize;
+    height: $starSize;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 6px;
+  }
+
+  &__item::before {
+    content: "→ ";
+  }
+
+  &__clear_button {
+    background-color: #fff;
+    border: none;
+    cursor:pointer;
+  }
+}

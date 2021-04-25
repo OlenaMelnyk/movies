@@ -3,102 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sort employees</title>
+    <title>Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Age</th>
-          <th>Salary</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Airi Satou</td>
-          <td>Accountant</td>
-          <td>33</td>
-          <td>$162,700</td>
-        </tr>
-        <tr>
-          <td>Michael Bruce</td>
-          <td>Javascript Developer</td>
-          <td>29</td>
-          <td>$183,000</td>
-        </tr>
-        <tr>
-          <td>Michael Silva</td>
-          <td>Marketing Designer</td>
-          <td>66</td>
-          <td>$198,500</td>
-        </tr>
-        <tr>
-          <td>Prescott Bartlett</td>
-          <td>Technical Author</td>
-          <td>27</td>
-          <td>$145,000</td>
-        </tr>
-        <tr>
-          <td>Thor Walton</td>
-          <td>Developer</td>
-          <td>61</td>
-          <td>$98,540</td>
-        </tr>
-        <tr>
-          <td>Rhona Davidson</td>
-          <td>Integration Specialist</td>
-          <td>55</td>
-          <td>$327,900</td>
-        </tr>
-        <tr>
-          <td>Serge Baldwin</td>
-          <td>Data Coordinator</td>
-          <td>64</td>
-          <td>$138,575</td>
-        </tr>
-        <tr>
-          <td>Shad Decker</td>
-          <td>Regional Director</td>
-          <td>51</td>
-          <td>$183,000</td>
-        </tr>
-        <tr>
-          <td>Shou Itou</td>
-          <td>Regional Marketing</td>
-          <td>20</td>
-          <td>$163,000</td>
-        </tr>
-        <tr>
-          <td>Vivian Harrell</td>
-          <td>Financial Controller</td>
-          <td>62</td>
-          <td>$452,500</td>
-        </tr>
-        <tr>
-          <td>Zorita Serrano</td>
-          <td>Software Engineer</td>
-          <td>56</td>
-          <td>$115,000</td>
-        </tr>
-        <tr>
-          <td>Colleen Hurst</td>
-          <td>Javascript Developer</td>
-          <td>39</td>
-          <td>$205,500</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Age</th>
-          <th>Salary</th>
-        </tr>
-      </tfoot>
-    </table>
+    <header>
+      <h1 class="title">Movies Gallery</h1>
+    </header>
+    <main>
+      <div class="gallery gallery-style">
+        <div class="gallery__content">
+        </div>
+        <div class="gallery__favorites favorites">
+          <span>
+            <img
+              class="favorites__star"
+              src="./images/star-active.svg"
+              alt="star"
+            >
+            <h2 class="favorites__title">Favorite list</h2>
+          </span>
+          <ul class="favorites__list">
+          </ul>
+        </div>
+      </div>
+    </main>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
