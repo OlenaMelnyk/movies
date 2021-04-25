@@ -1,6 +1,6 @@
 {
   "name": "gulp-boilerplate",
-  "homepage": "https://OlenaMelnyk.github.io/movies";
+  "homepage": "https://OlenaMelnyk.github.io/movies",
   "version": "1.0.0",
   "description": "Frontend boilerplate based on gulp",
   "main": "index.js",
