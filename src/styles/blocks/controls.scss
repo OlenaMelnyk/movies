@@ -1,0 +1,11 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  &__tabs {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }  
+}

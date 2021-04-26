@@ -1,0 +1,25 @@
+.tabs {
+  &__title {
+    padding: 0 20px;
+  }
+  
+  &__tab {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    &-selected {
+      background-color: lightgray;
+    }  
+  }
+
+  &__view {
+    background-image: url("../images/view.png");
+  }
+  
+  &__list {
+    background-image: url("../images/list.png");
+  }
+}

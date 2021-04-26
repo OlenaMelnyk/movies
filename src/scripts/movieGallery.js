@@ -3,10 +3,10 @@ import { MovieCards } from './movieCards';
 import { MovieList } from './movieList';
 
 export class MovieGallery {
-  constructor(movies, favorites) {
+  constructor(movies, favorites, genres) {
     this.movies = movies;
     this.favorites = favorites;
-    this.controlPanel = new ControlPanel();
+    this.controlPanel = new ControlPanel(genres);
     this.delegate = null;
 
     const viewMode = this.controlPanel.getViewMode();

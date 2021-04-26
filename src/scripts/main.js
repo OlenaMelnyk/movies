@@ -27,8 +27,9 @@ class Controller {
 
     const movies = model.getMovies();
     const favorites = model.getFavorites();
+    const genres = model.getGenres();
 
-    this.movieGallery = new MovieGallery(movies, favorites);
+    this.movieGallery = new MovieGallery(movies, favorites, genres);
     this.movieFavorites = new Favorites(movies, favorites);
     this.movieGallery.setDelegate(this);
     this.movieFavorites.setDelegate(this);

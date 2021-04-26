@@ -37,4 +37,13 @@ export class MoviesModel {
       observer.updateView();
     }
   }
+
+  getGenres() {
+    const allGenres = this.movies
+      .reduce((genres, movie) => genres.concat(movie.genres), []);
+    const uniqueGenres = Array.from(new Set(allGenres));
+
+    return uniqueGenres
+      .map(genre => genre.slice(0, 1).toUpperCase() + genre.slice(1));
+  }
 };

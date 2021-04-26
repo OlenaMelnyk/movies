@@ -1,0 +1,46 @@
+.movie {
+  position:relative;
+  display: block;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 12px;
+
+  width: 100%;
+  padding: 15px;
+  
+  background: #fff;
+  border: 1px solid #f3f3f3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+  border-radius: 5px;  
+  @include centeredFlex;
+  flex-direction: row;
+
+  &__image {
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+  }
+
+  &__star {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-image: url("../images/star.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: $starSize;
+    height: $starSize;
+  }
+
+  &__star--active {
+    background-image: url("../images/star-active.svg");
+  }
+
+  &__name {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+}
