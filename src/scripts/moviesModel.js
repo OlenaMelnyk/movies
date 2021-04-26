@@ -1,5 +1,7 @@
 import { getFromLocalStorage, updateInLocalStorage } from './api';
 
+const favoritesKey = 'favorites';
+
 export class MoviesModel {
   constructor() {
     this.movies = [];
@@ -27,11 +29,11 @@ export class MoviesModel {
   }
 
   getFavorites() {
-    return getFromLocalStorage('favorites', []);
+    return getFromLocalStorage(favoritesKey, []);
   }
 
   setToFavorites(id, action) {
-    updateInLocalStorage('favorites', id, action);
+    updateInLocalStorage(favoritesKey, id, action);
 
     for (const observer of this.observers) {
       observer.updateView();
@@ -40,10 +42,10 @@ export class MoviesModel {
 
   getGenres() {
     const allGenres = this.movies
-      .reduce((genres, movie) => genres.concat(movie.genres), []);
+      .reduce((genres, movie) => genres.concat(movie.genres), [])
+      .map(genre => genre.slice(0, 1).toUpperCase() + genre.slice(1));
     const uniqueGenres = Array.from(new Set(allGenres));
 
-    return uniqueGenres
-      .map(genre => genre.slice(0, 1).toUpperCase() + genre.slice(1));
+    return uniqueGenres;
   }
 };

@@ -72,14 +72,21 @@ export class MovieCards {
 
     [...this.galleryContent.children].map(movieCard => {
       const movie = newMovies.findById(movieCard.dataset.id);
-      const isFavorite = newFavorites.includes('' + movie.id);
 
-      if (isFavorite) {
-        movieCard.querySelector('.cardmovie__star')
-          .classList.add('cardmovie__star--active');
+      if (movie) {
+        movieCard.style.display = 'block';
+
+        const isFavorite = newFavorites.includes('' + movie.id);
+
+        if (isFavorite) {
+          movieCard.querySelector('.cardmovie__star')
+            .classList.add('cardmovie__star--active');
+        } else {
+          movieCard.querySelector('.cardmovie__star')
+            .className = 'cardmovie__star';
+        }
       } else {
-        movieCard.querySelector('.cardmovie__star')
-          .className = 'cardmovie__star';
+        movieCard.style.display = 'none';
       }
     });
   }

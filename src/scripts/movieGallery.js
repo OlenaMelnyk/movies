@@ -9,17 +9,19 @@ export class MovieGallery {
     this.controlPanel = new ControlPanel(genres);
     this.delegate = null;
 
-    const viewMode = this.controlPanel.getViewMode();
-    // TODO
-    // const filter = this.controlPanel.getFilter();
-    // if (filter.length > 0) {
-    //   filteredMovies();
-    // }
+    this.viewMode = this.controlPanel.getViewMode();
 
-    if (movies.length) {
-      this.viewContent = (viewMode === 'card')
-        ? new MovieCards(movies, favorites)
-        : new MovieList(movies, favorites);
+    const filter = this.controlPanel.getFilter();
+    let newMovies = movies;
+
+    if (filter.length > 0) {
+      newMovies = this.filterMovies(filter);
+    }
+
+    if (newMovies.length) {
+      this.viewContent = (this.viewMode === 'card')
+        ? new MovieCards(newMovies, favorites)
+        : new MovieList(newMovies, favorites);
     } else {
       this.showError();
     }
@@ -27,18 +29,45 @@ export class MovieGallery {
 
   setDelegate(delegate) {
     this.delegate = delegate;
+    this.controlPanel.setDelegate(this);
 
     if (this.viewContent) {
       this.viewContent.setDelegate(this);
     }
   }
 
+  filterMovies(filter) {
+    if (filter.length) {
+      return this.movies.filter(movie => movie.genres.includes(filter));
+    } else {
+      return this.movies;
+    }
+  }
+
   updateView(newMovies, newFavorites) {
-    this.viewContent.updateView(newMovies, newFavorites);
+    this.movies = newMovies;
+    this.favorites = newFavorites;
+
+    const filter = this.controlPanel.getFilter();
+    const filteredMovies = this.filterMovies(filter);
+
+    this.viewContent.updateView(filteredMovies, newFavorites);
   }
 
   setToFavorites(id, action) {
     this.delegate.setToFavorites(id, action);
+  }
+
+  setFilter(filter) {
+    this.filter = filter;
+
+    const filteredMovies = this.filterMovies(filter);
+
+    this.viewContent.updateView(filteredMovies, this.favorites);
+  }
+
+  setViewMode(mode) {
+    this.viewMode = mode;
   }
 
   showError() {
