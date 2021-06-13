@@ -1,5 +1,4 @@
 import 'core-js';
-// import regeneratorRuntime from 'regenerator-runtime';
 import { Action } from './variables';
 
 const BASE_URL = 'https://my-json-server.typicode.com/moviedb-tech/movies/list';

@@ -12,14 +12,10 @@ export class MovieGallery {
     this.viewMode = this.controlPanel.getViewMode();
 
     const filter = this.controlPanel.getFilter();
-    let newMovies = movies;
-
-    if (filter.length > 0) {
-      newMovies = this.filterMovies(filter);
-    }
+    const newMovies = this.filterMovies(filter);
 
     if (newMovies.length) {
-      this.viewContent = (this.viewMode === 'card')
+      this.viewContent = (this.viewMode === 'cards')
         ? new MovieCards(newMovies, favorites)
         : new MovieList(newMovies, favorites);
     } else {
@@ -38,9 +34,16 @@ export class MovieGallery {
 
   filterMovies(filter) {
     if (filter.length) {
-      return this.movies.filter(movie => movie.genres.includes(filter));
+      return this.movies.map(movie => {
+        movie.visible = movie.genres.includes(filter);
+
+        return movie;
+      });
     } else {
-      return this.movies;
+      return this.movies.map(movie => ({
+        ...movie,
+        visible: true,
+      }));
     }
   }
 
@@ -67,7 +70,21 @@ export class MovieGallery {
   }
 
   setViewMode(mode) {
+    const prevMode = this.viewMode;
     this.viewMode = mode;
+
+    const galleryContent = document.querySelector(`.gallery__${prevMode}`);
+    console.log("galleryContent", galleryContent, `.gallery__${prevMode}`);
+    [...galleryContent.children].map(child => child.remove());
+    galleryContent.className = `gallery__${mode}`;
+    console.log("new galleryContent", galleryContent, `.gallery__${mode}`);
+    const filter = this.controlPanel.getFilter();
+    const filteredMovies = this.filterMovies(filter);
+
+    this.viewContent = (mode === 'cards')
+      ? new MovieCards(filteredMovies, this.favorites)
+      : new MovieList(filteredMovies, this.favorites);
+    this.viewContent.setDelegate(this);
   }
 
   showError() {

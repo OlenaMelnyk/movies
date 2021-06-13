@@ -43,6 +43,16 @@
     margin-bottom: 6px;
   }
 
+  &__year {
+    text-align: center;
+  }
+
+  &__genres {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
   @media screen and (min-width: 320px) {
     width: 140px;
   }

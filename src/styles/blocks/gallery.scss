@@ -10,10 +10,17 @@
     margin: 0 auto;
   }
 
-  &__content{
+  &__cards{
     display: grid;
     grid-template-columns: repeat(auto-fill, 120px);
     justify-content: center;
+    gap: 20px;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 20px;
   }
   
@@ -42,7 +49,7 @@
   @media screen and (min-width: 320px) {
     grid-template-columns: auto 140px;
 
-    &__content{
+    &__cards{
       grid-template-columns: repeat(auto-fill, 140px);
     }
   }
@@ -51,7 +58,7 @@
     grid-template-columns: auto 200px;
     padding: 20px;
 
-    &__content{
+    &__cards{
       grid-template-columns: repeat(auto-fill, 150px);
     }
   }

@@ -5,7 +5,7 @@ export class MovieCards {
   constructor(movies, favorites) {
     this.movies = movies;
     this.favorites = favorites;
-    this.galleryContent = document.querySelector('.gallery__content');
+    this.galleryContent = document.querySelector('.gallery__cards');
     this.movieDetails = new MovieDetails();
     this.delegate = null;
     this.createMovieCards(movies, favorites);
@@ -14,10 +14,15 @@ export class MovieCards {
 
   createMovieCards(movies, favorites) {
     movies.map(movie => {
+      const displayType = movie.visible ? 'block' : 'none';
       const isFavorite = favorites.includes('' + movie.id);
 
       this.galleryContent.insertAdjacentHTML('beforeend',
-        `<div class='cardmovie' data-id=${movie.id}>
+        `<div
+          class='cardmovie'
+          data-id=${movie.id}
+          style="display:${displayType}"
+        >
           <img class='cardmovie__image' src=${movie.img} alt="">
           <h2 class='cardmovie__name'>${movie.name}</h2>
           <p class='cardmovie__year'>${movie.year}</p>
@@ -73,7 +78,7 @@ export class MovieCards {
     [...this.galleryContent.children].map(movieCard => {
       const movie = newMovies.findById(movieCard.dataset.id);
 
-      if (movie) {
+      if (movie.visible) {
         movieCard.style.display = 'block';
 
         const isFavorite = newFavorites.includes('' + movie.id);
